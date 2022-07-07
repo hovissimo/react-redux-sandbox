@@ -10,6 +10,15 @@ export const fishSlice = createSlice({
     addFish(state, action) {
       state.push(action.payload);
     },
+    updateFish(state, action) {
+      const updatedFish = action.payload;
+      const foundFish = state.find(
+        (existingFish) => existingFish.id === action.payload.id
+      );
+      if (foundFish) {
+        Object.merge(foundFish, updatedFish);
+      }
+    },
     removeFish(state, action) {
       return state.filter((fish) => fish.id !== action.payload.id);
     },
