@@ -1,11 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit";
 
-import * as fromPlantSlice from './plantSlice';
-console.log({ fromPlantSlice });
+import * as fromFishSlice from "./fishSlice";
+console.log({ fromFishSlice });
 
-const { plantSlice } = fromPlantSlice;
+const { fishSlice } = fromFishSlice;
 const reducer = {
-  [plantSlice.name]: plantSlice.reducer,
+  [fishSlice.name]: fishSlice.reducer,
 };
 
 const middleware = (getDefault) => [...getDefault()];
