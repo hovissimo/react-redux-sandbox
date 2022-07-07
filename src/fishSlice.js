@@ -1,10 +1,10 @@
-import { createDraftSafeSelector, createSlice } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
-import { faker } from "@faker-js/faker";
-import { v4 as uuid } from "uuid";
+import { createDraftSafeSelector, createSlice } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
+import { faker } from '@faker-js/faker';
+import { v4 as uuid } from 'uuid';
 
 export const fishSlice = createSlice({
-  name: "fishSlice",
+  name: 'fishSlice',
   initialState: [],
   reducers: {
     addFish(state, action) {
@@ -28,6 +28,9 @@ export function useAddRandomFish() {
     const fish = {
       id: uuid(),
       name: faker.animal.fish(),
+      metadata: {
+        updatedAt: new Date().toISOString(),
+      },
     };
     dispatch(fishSlice.actions.addFish(fish));
   };
