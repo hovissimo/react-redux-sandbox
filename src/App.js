@@ -7,12 +7,15 @@ import { FishDebug } from "./FishDebug";
 import { Fishes } from "./Fishes";
 import { FishesByLetter } from "./FishesByLetter";
 
+import { UploadForm } from "./UploadForm.js";
+
 export function App() {
   return (
     <Provider store={store}>
       <div className="App">
         <h1>Hello Redux sandbox</h1>
         <h2>Start editing to see some magic happen!</h2>
+        <UploadForm />
         <FishesByLetter startsWith="S" />
         <FishesByLetter startsWith="A" />
         <FishesByLetter startsWith="N" />
