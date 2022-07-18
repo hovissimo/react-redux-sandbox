@@ -18,15 +18,6 @@ const DD = styled.dd`
   display: table-cell;
 `
 
-function Field({ property, value }) {
-    return (
-        <Line>
-            <DT>{property}</DT>
-            <DD>{value}</DD>
-        </Line>
-    )
-}
-
 const Wrapper = styled.div`
   background-color: #b8e6ff;
   display: float;
@@ -38,12 +29,17 @@ function Fish({ fish }) {
     return (
         <Wrapper>
             <DL>
-                <Field property="id" value={fish.id} />
-                <Field property="name" value={fish.name} />
+                <Line>
+                    <DT>{fish.name}</DT>
+                    <DD>{fish.id}</DD>
+                </Line>
             </DL>
             <button onClick={() => removeFish(fish)}>Remove</button>
         </Wrapper>
     )
+}
+Fish.propTypes = {
+    fish: fromFishSlice.fishShape.isRequired,
 }
 
 export function Fishes() {

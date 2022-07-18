@@ -1,7 +1,13 @@
 import { createDraftSafeSelector, createSlice } from '@reduxjs/toolkit'
+import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { faker } from '@faker-js/faker'
 import { v4 as uuid } from 'uuid'
+
+export const fishShape = PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+})
 
 export const fishSlice = createSlice({
     name: 'fishSlice',
