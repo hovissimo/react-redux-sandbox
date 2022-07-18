@@ -1,7 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import * as fromFishSlice from './fishSlice'
 import { useSelector } from 'react-redux'
-import styled from 'styled-components'
 
 export function FishesByLetter({ startsWith }) {
     const fishes = useSelector(
@@ -15,4 +15,8 @@ export function FishesByLetter({ startsWith }) {
             ))}
         </ul>
     )
+}
+
+FishesByLetter.propTypes = {
+    startsWith: PropTypes.string.isRequired,
 }
