@@ -1,5 +1,6 @@
 import React from 'react'
 import * as fromFishSlice from './fishSlice'
+import { FishForm } from './FishForm'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
@@ -26,17 +27,24 @@ const Wrapper = styled.div`
 
 function Fish({ fish }) {
   const removeFish = fromFishSlice.useRemoveFish()
+  const [isEditing, setIsEditing] = React.useState(false)
   return (
     <Wrapper>
-      <DL>
-        <Line>
-          <DT>{fish.name}</DT>
-          <DD>{fish.id}</DD>
-        </Line>
-      </DL>
-      <button onClick={() => removeFish(fish)}>
-        Remove
-      </button>
+      {!isEditing && (
+        <>
+          <DL>
+            <Line>
+              <DT>{fish.name}</DT>
+              <DD>{fish.id}</DD>
+            </Line>
+          </DL>
+          <button onClick={() => setIsEditing(true)}>Edit</button>
+          <button onClick={() => removeFish(fish)}>Remove</button>
+        </>
+      )}
+      {isEditing && (
+        <FishForm fish={fish} onClose={() => setIsEditing(false)} />
+      )}
     </Wrapper>
   )
 }
