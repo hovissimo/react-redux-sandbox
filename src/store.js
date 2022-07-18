@@ -1,13 +1,13 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit'
 
-import * as fromFishSlice from "./fishSlice";
-console.log({ fromFishSlice });
+import * as fromFishSlice from './fishSlice'
+console.log({ fromFishSlice })
 
-const { fishSlice } = fromFishSlice;
+const { fishSlice } = fromFishSlice
 const reducer = {
-  [fishSlice.name]: fishSlice.reducer,
-};
+    [fishSlice.name]: fishSlice.reducer,
+}
 
-const middleware = (getDefault) => [...getDefault()];
+const middleware = (getDefault) => [...getDefault()]
 
-export const store = configureStore({ reducer, middleware });
+export const store = configureStore({ reducer, middleware })
