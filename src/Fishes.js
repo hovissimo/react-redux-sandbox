@@ -25,32 +25,34 @@ const Wrapper = styled.div`
 `
 
 function Fish({ fish }) {
-    const removeFish = fromFishSlice.useRemoveFish()
-    return (
-        <Wrapper>
-            <DL>
-                <Line>
-                    <DT>{fish.name}</DT>
-                    <DD>{fish.id}</DD>
-                </Line>
-            </DL>
-            <button onClick={() => removeFish(fish)}>Remove</button>
-        </Wrapper>
-    )
+  const removeFish = fromFishSlice.useRemoveFish()
+  return (
+    <Wrapper>
+      <DL>
+        <Line>
+          <DT>{fish.name}</DT>
+          <DD>{fish.id}</DD>
+        </Line>
+      </DL>
+      <button onClick={() => removeFish(fish)}>
+        Remove
+      </button>
+    </Wrapper>
+  )
 }
 Fish.propTypes = {
-    fish: fromFishSlice.fishShape.isRequired,
+  fish: fromFishSlice.fishShape.isRequired,
 }
 
 export function Fishes() {
-    const fishes = useSelector(fromFishSlice.selectAll)
-    const addRandomFish = fromFishSlice.useAddRandomFish()
-    return (
-        <div>
-            <button onClick={addRandomFish}>Add fish</button>
-            {fishes.map((fish) => (
-                <Fish key={fish.id} fish={fish} />
-            ))}
-        </div>
-    )
+  const fishes = useSelector(fromFishSlice.selectAll)
+  const addRandomFish = fromFishSlice.useAddRandomFish()
+  return (
+    <div>
+      <button onClick={addRandomFish}>Add fish</button>
+      {fishes.map((fish) => (
+        <Fish key={fish.id} fish={fish} />
+      ))}
+    </div>
+  )
 }

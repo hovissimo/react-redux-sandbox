@@ -11,6 +11,6 @@ const Pre = styled.pre`
 `
 
 export function FishDebug() {
-    const fishes = useSelector(fishSlice.selectAll)
-    return <Pre>{JSON.stringify(fishes, null, 2)}</Pre>
+  const fishes = useSelector(fishSlice.selectAll)
+  return <Pre>{JSON.stringify(fishes, null, 2)}</Pre>
 }
