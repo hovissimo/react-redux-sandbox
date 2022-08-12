@@ -1,0 +1,13 @@
+.dialog {
+  padding: 1rem;
+  border: thin solid black;
+  display: grid;
+  grid-template:
+    'header' 2rem
+    'content' 8rem
+    'controls' 2rem;
+}
+
+.dialog h2 {
+  margin: 0;
+}
